@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.renrenche</groupId>
+    <artifactId>z-orm</artifactId>
+    <version>2.0.4-SNAPSHOT</version>
+
+    <modules>
+        <module>z-orm-core</module>
+        <module>z-orm-jdbc</module>
+        <module>z-orm-elasticsearch</module>
+    </modules>
+
+    <packaging>pom</packaging>
+
+    <name>z-orm</name>
+    <description>next orm framework.</description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <!-- Maven插件版本定义 apache-maven-3.3.3版本默认版本插件版本.-->
+        <maven_source_plugin_version>2.6</maven_source_plugin_version>
+        <maven_compiler_plugin_version>3.1</maven_compiler_plugin_version>
+    </properties>
+
+    <build>
+        <plugins>
+            <!-- compiler插件, 设定JDK版本 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven_compiler_plugin_version}</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <!-- resource插件, 设定编码 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>${maven_source_plugin_version}</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.1</version>
+                <configuration>
+                    <attach>true</attach>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <distributionManagement>
+        <repository>
+            <id>release</id>
+            <url>http://repo.shanyishanmei.com/nexus/content/repositories/renrenche-business-releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshot</id>
+            <url>http://repo.shanyishanmei.com/nexus/content/repositories/renrenche-business-snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+</project>
